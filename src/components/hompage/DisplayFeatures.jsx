@@ -7,31 +7,26 @@ const features = [
     title: "Gift Cards",
     description: "Send love with instant digital gift cards.",
     icon: Gift,
-    link: "/gift-card",
   },
   {
     title: "Membership",
     description: "Get exclusive deals & premium benefits.",
     icon: Users,
-    link: "/membership",
   },
   {
     title: "Become a Seller",
     description: "Start selling and grow your business.",
     icon: Store,
-    link: "/seller",
   },
   {
     title: "International Shopping",
     description: "Shop products from around the world.",
     icon: Globe,
-    link: "/international",
   },
   {
     title: "Smart Wishlist",
     description: "Save and track your favorite items.",
     icon: Heart,
-    link: "/wishlist",
   },
 ];
 
@@ -57,7 +52,7 @@ const DisplayFeatures = () => {
           return (
             <Link
               key={index}
-              href={feature.link}
+              href="/features"
               className="bg-white rounded-xl shadow p-5 text-center hover:shadow-lg transition group"
             >
               {/* Icon */}
