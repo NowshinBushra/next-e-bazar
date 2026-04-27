@@ -48,11 +48,13 @@ const OurProducts = () => {
                     <p className="text-amber-600 font-bold mt-2">
                       ${product.price}
                     </p>
-        
-                    <button className="mt-3 w-full border-2 border-blue-700 rounded-lg text-blue-700 py-1 hover:border-yellow-600 hover:text-yellow-600">
+                  <div className='flex  justify-center'>
+                    <Link href={`/products/${product.id}`}
+                    className="mt-4 text-sm md:text-base px-4 md:px-14 border-2 border-blue-700 rounded-lg text-blue-700 py-1 hover:border-yellow-600 hover:text-yellow-600">
                       View Details
-                    </button>
+                    </Link>
                   </div>
+                </div>
                 )).slice(0, 8)}
               </div>
               <div className='flex justify-center py-5'>

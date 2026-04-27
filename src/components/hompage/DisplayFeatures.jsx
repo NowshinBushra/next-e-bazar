@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {Gift, Users, Store, Globe, Heart} from "lucide-react";
 import Link from 'next/link';
 
@@ -36,7 +35,7 @@ const features = [
   },
 ];
 
-const Features = () => {
+const DisplayFeatures = () => {
     return (
         <section className="max-w-6xl mx-auto px-4 py-12">
       
@@ -83,4 +82,4 @@ const Features = () => {
     );
 };
 
-export default Features;
+export default DisplayFeatures;

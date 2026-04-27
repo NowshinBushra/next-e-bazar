@@ -51,7 +51,7 @@ const Page = () => {
 
             <div className='flex  justify-center'>
               <Link href={`/products/${product.id}`}
-              className="mt-3 px-14 border-2 hover:border-blue-700 rounded-lg hover:text-blue-700 py-1 border-yellow-600 text-yellow-600">
+              className="mt-3 text-sm md:text-base px-4 md:px-14 border-2 hover:border-blue-700 rounded-lg hover:text-blue-700 py-1 border-yellow-600 text-yellow-600">
               View Details
             </Link>
             </div>
