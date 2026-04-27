@@ -1,86 +1,103 @@
-import React from 'react';
-
-import {Gift, Users, Store, Globe, Heart} from "lucide-react";
-import Link from 'next/link';
+import Link from "next/link";
+import { Gift, Users, Store, Globe, Heart } from "lucide-react";
 
 const features = [
   {
     title: "Gift Cards",
-    description: "Send love with instant digital gift cards.",
+    description: "Send digital gift cards instantly to your loved ones for any occasion.",
+    points: ["Instant delivery via email", "Flexible amount selection", "No expiry date"],
     icon: Gift,
     link: "/gift-card",
+    color: "text-rose-500",
+    bg: "bg-rose-50",
   },
   {
     title: "Membership",
-    description: "Get exclusive deals & premium benefits.",
+    description: "Unlock premium shopping experience with exclusive perks.",
+    points: ["Exclusive discounts", "Early access to sales", "Faster delivery"],
     icon: Users,
     link: "/membership",
+    color: "text-blue-500",
+    bg: "bg-blue-50",
   },
   {
     title: "Become a Seller",
-    description: "Start selling and grow your business.",
+    description: "Start your business and reach thousands of customers easily.",
+    points: ["Easy product listing", "Secure payment system", "Growth analytics"],
     icon: Store,
     link: "/seller",
+    color: "text-amber-500",
+    bg: "bg-amber-50",
   },
   {
     title: "International Shopping",
-    description: "Shop products from around the world.",
+    description: "Shop products from around the world without hassle.",
+    points: ["Global product access", "Secure payments", "Reliable shipping"],
     icon: Globe,
     link: "/international",
+    color: "text-emerald-500",
+    bg: "bg-emerald-50",
   },
   {
     title: "Smart Wishlist",
-    description: "Save and track your favorite items.",
+    description: "Save, track, and manage your favorite products smartly.",
+    points: ["Save unlimited items", "Price drop alerts", "Quick add to cart"],
     icon: Heart,
     link: "/wishlist",
+    color: "text-purple-500",
+    bg: "bg-purple-50",
   },
 ];
 
-const Features = () => {
-    return (
-        <section className="max-w-6xl mx-auto px-4 py-12">
-      
-      {/* Heading */}
-      <div className="text-center mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Our Features
+export default function FeaturesPage() {
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-20 bg-gray-50">
+      <div className="text-center mb-16">
+        <h2 className="text-sm font-semibold text-blue-600 tracking-wide uppercase mb-2">
+          Why Choose Us
         </h2>
-        <p className="text-gray-500 mt-2">
-          Explore powerful features designed for better shopping experience
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+          Everything You Need in One Place
+        </h1>
+        <p className="text-gray-600 mt-4 max-w-lg mx-auto">
+          We’ve built e-bazar to be more than just a store. Discover powerful tools designed for your convenience.
         </p>
       </div>
 
-      {/* Features Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => {
           const Icon = feature.icon;
-
           return (
-            <Link
+            <div
               key={index}
-              href={feature.link}
-              className="bg-white rounded-xl shadow p-5 text-center hover:shadow-lg transition group"
+              className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              {/* Icon */}
-              <div className="flex justify-center mb-3">
-                <Icon className="w-10 h-10 text-amber-700 group-hover:scale-110 transition" />
+              <div className={`${feature.bg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}>
+                <Icon className={`w-8 h-8 ${feature.color}`} />
               </div>
 
-              {/* Title */}
-              <h3 className="font-semibold text-gray-800">
-                {feature.title}
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p className="text-gray-600 mb-6">{feature.description}</p>
 
-              {/* Description */}
-              <p className="text-sm text-gray-500 mt-1">
-                {feature.description}
-              </p>
-            </Link>
+              <ul className="space-y-3 mb-8">
+                {feature.points.map((point, i) => (
+                  <li key={i} className="flex items-center text-gray-700 text-sm font-medium">
+                    <span className="bg-gray-100 p-1 rounded-full mr-3 text-green-600">✓</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={feature.link}
+                className="block text-center w-full bg-gray-900 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition"
+              >
+                Learn More
+              </Link>
+            </div>
           );
         })}
       </div>
-    </section>
-    );
-};
-
-export default Features;
+    </div>
+  );
+}

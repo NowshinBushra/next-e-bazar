@@ -78,6 +78,9 @@ const DisplayFeatures = () => {
           );
         })}
       </div>
+      <div className='flex justify-center py-5'>
+        <Link href="/features" className="text-amber-600 font-semibold">Explore All Features...</Link>
+      </div>
     </section>
     );
 };

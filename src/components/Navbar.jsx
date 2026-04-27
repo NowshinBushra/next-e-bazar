@@ -11,10 +11,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Flash Sale", href: "/sale" },
     { name: "All Products", href: "/products" },
     { name: "Features", href: "/features" },
     { name: "About", href: "/about" },
+    { name: "Flash Sale", href: "/sale" },
   ];
 
   return (

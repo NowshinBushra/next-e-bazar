@@ -1,66 +1,67 @@
 "use client"
-import Page from '@/app/products/page';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const OurProducts = () => {
-
     const [products, setProducts] = useState([])
     
-        useEffect(() => {
-            async function fetchProducts() {
-                const res = await fetch("https://fakestoreapi.com/products");
-                const data = await res.json();
-                setProducts(data);
-    
-                console.log(data);
-            }
-            fetchProducts()
-        }, [])
+    useEffect(() => {
+        async function fetchProducts() {
+            const res = await fetch("https://fakestoreapi.com/products");
+            const data = await res.json();
+            setProducts(data);
+        }
+        fetchProducts()
+    }, [])
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-10">
+        <div className="max-w-7xl mx-auto px-6 py-16 bg-[#fafafa]">
               
-              <h1 className="text-2xl font-bold mb-6 text-center">Our Products</h1>
+              <h1 className="text-3xl md:text-4xl font-extrabold mb-12 text-center text-slate-900 tracking-tight">
+                Our Products
+              </h1>
         
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {products.map((product) => (
                   <div
                     key={product.id}
-                    className="bg-white shadow rounded-lg p-4 hover:shadow-lg transition"
+                    className="group bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                   >
-                    <div className="relative w-full h-40">
+                    <div className="relative w-full h-48 mb-4">
                       <Image
                         src={product.image}
                         alt={product.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                        className="object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
         
-                    {/* Title */}
-                    <h2 className="mt-3 font-semibold text-sm line-clamp-2">
+                    <h2 className="font-medium text-slate-800 text-sm line-clamp-2 h-10">
                       {product.title}
                     </h2>
         
-                    <p className="text-amber-600 font-bold mt-2">
+                    <p className="text-blue-600 font-bold text-lg mt-3">
                       ${product.price}
                     </p>
-                  <div className='flex  justify-center'>
-                    <Link href={`/products/${product.id}`}
-                    className="mt-4 text-sm md:text-base px-4 md:px-14 border-2 border-blue-700 rounded-lg text-blue-700 py-1 hover:border-yellow-600 hover:text-yellow-600">
-                      View Details
-                    </Link>
+                    
+                    <div className='flex justify-center mt-4'>
+                      <Link href={`/products/${product.id}`}
+                        className="w-full text-center text-sm font-semibold border-2 border-slate-900 rounded-xl text-slate-900 py-2.5 transition-all duration-300 hover:bg-slate-900 hover:text-white">
+                        View Details
+                      </Link>
+                    </div>
                   </div>
-                </div>
                 )).slice(0, 8)}
               </div>
-              <div className='flex justify-center py-5'>
-                <Link href="/products" className="text-amber-600 font-semibold ">Show More...</Link>
+              
+              <div className='flex justify-center py-10'>
+                <Link href="/products" className="text-blue-600 font-bold hover:text-blue-800 transition-colors border-b-2 border-blue-600 pb-1">
+                    Show More Products →
+                </Link>
               </div>
-            </div>
+        </div>
     );
 };
 
